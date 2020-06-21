@@ -1,14 +1,6 @@
-<ul>
-  <li *ngFor="let task of tasks" class="{{ task.done ? 'done' : '' }}">
-    {{ task.title }}
-  </li>
-  <li>
-    <input type="text" [(ngModel)]="newTaskTitle" #title="ngModel" required>
-    <!-- titleという名前でngmodelを設定 -->
-    <!-- ngモデル自体を突っ込むことで、invalid属性などにアクセスできる -->
-    <button (click)="addTask()" [disabled]="title.invalid">追加</button>
-    <!-- titleがinvalidならdisabledで押せなくする -->
-  </li>
-</ul>
-
-newTaskTitleの値: {{ newTaskTitle }}
+<li *ngFor="let task of tasks" class="{{ task.done ? 'done' : '' }}">
+   <label>
+     <input type="checkbox" [(ngModel)]="task.done">
+     {{ task.title }}
+     </label>
+</li>
