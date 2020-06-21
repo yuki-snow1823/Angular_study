@@ -3,8 +3,11 @@
     {{ task.title }}
   </li>
   <li>
-    <input type="text" [(ngModel)]="newTaskTitle">
-    <button (click)="addTask()">追加</button>
+    <input type="text" [(ngModel)]="newTaskTitle" #title="ngModel" required>
+    <!-- titleという名前でngmodelを設定 -->
+    <!-- ngモデル自体を突っ込むことで、invalid属性などにアクセスできる -->
+    <button (click)="addTask()" [disabled]="title.invalid">追加</button>
+    <!-- titleがinvalidならdisabledで押せなくする -->
   </li>
 </ul>
 
