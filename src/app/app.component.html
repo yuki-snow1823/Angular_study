@@ -7,6 +7,7 @@
       {{ task.title }}
       <!-- 本来そのまま出力されちゃうデータをパイプを使って整える -->
       （期日：{{ task.deadline|date:'yyyy/MM/dd' }}）
+       <span *ngIf="isOverdue(task)" class="overdue">期日超過</span>
     </label>
   </li>
   <li>
