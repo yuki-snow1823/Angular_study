@@ -12,4 +12,9 @@ export class AppComponent {
     { title: '銀行に行く', done: false }
   ];
   newTaskTitle = 'test';
+
+   addTask() {
+     this.tasks.push({title: this.newTaskTitle, done: false});
+     this.newTaskTitle = '';
+   }
 }
